@@ -34,6 +34,7 @@ struct FPawnData
 		int32 AttackDistance;
 	  
 	/** damage reduction */
+	/** damage reduction aaaaaaaaa */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Data)
 		int32 DamageReduction;
 
