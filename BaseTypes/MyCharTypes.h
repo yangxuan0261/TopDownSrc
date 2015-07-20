@@ -32,7 +32,7 @@ struct FPawnData
 	/** range of pawn attack */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Data)
 		int32 AttackDistance;
-
+	  
 	/** damage reduction */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Data)
 		int32 DamageReduction;
