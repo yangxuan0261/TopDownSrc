@@ -40,10 +40,12 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* InputCompone
 
 bool AMyCharacter::addTask(UTask* _task)
 {
-	if (idea == nullptr)
-		return false;
+	//if (idea == nullptr)
+	//	return false;
 
-	idea->addTask2(_task);
+	//idea->addTask2(_task);
+	FString str = FString::Printf(TEXT("hello world - %d"), 123);
+	GEngine->AddOnScreenDebugMessage(0, 5.0f, FColor::Yellow, str);
 	return true;
 }
 

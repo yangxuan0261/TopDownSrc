@@ -8,7 +8,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType, Blueprintable)
 class MYBTTEST_API USkillTemplate : public UObject
 {
 	GENERATED_BODY()

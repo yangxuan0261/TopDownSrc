@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include "Utils/CReadFileStreamUtil.h"
+
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "MyBFL.generated.h"
 
@@ -19,5 +21,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MyBFL")
 	static UTask* createTask();
 	
-	
+	UFUNCTION(BlueprintCallable, Category = "MyBFL")
+		static bool ReadFile(FString _path);
 };

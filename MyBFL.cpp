@@ -10,3 +10,10 @@ UTask* UMyBFL::createTask()
 }
 
 
+bool UMyBFL::ReadFile(FString _path)
+{
+	CReadFileStreamUtil* rfs = new CReadFileStreamUtil();
+	rfs->readFileStream(_path);
+	rfs->drop();
+	return true;
+}
