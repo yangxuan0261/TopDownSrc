@@ -23,9 +23,12 @@ bool UMyBFL::ReadFile(FString _path)
 			int16 id = stream->readInt32();
 			int16 icon = stream->readInt16();
 			int16 lv = stream->readInt16();
+			int16 star = stream->readInt8();
+			std::string descr = stream->readString();
 
-			FString msg2 = FString::Printf(TEXT("--- id:%d, icon:%d, lv:%d \n"), id, icon, lv);
-			//GEngine->AddOnScreenDebugMessage(0, 3.0f, FColor::Yellow, msg2);
+
+			FString msg2 = FString::Printf(TEXT("--- id:%d, icon:%d, lv:%d, star:%d, descr:%s \n"), id, icon, lv, star, descr.c_str());
+
 			msg1.Append(msg2);
 		}
 		GEngine->AddOnScreenDebugMessage(0, 3.0f, FColor::Yellow, msg1);

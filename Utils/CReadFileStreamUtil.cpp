@@ -57,3 +57,13 @@ void CReadFileStreamUtil::readData(void* data, unsigned int sizeToRead)
 	}
 	m_iOffset += sizeToRead;
 }
+
+int32 CReadFileStreamUtil::read(unsigned char* buffer, uint32 sizeToRead){
+	//memcpy(buffer, m_Data.getBytes() + m_iOffset, sizeToRead);
+	unsigned char* data_ = m_Data;
+	for (uint32 i = 0; i < sizeToRead; ++i){
+		((unsigned char*)buffer)[i] = data_[i + m_iOffset];
+	}
+	m_iOffset += sizeToRead;
+	return sizeToRead;
+}

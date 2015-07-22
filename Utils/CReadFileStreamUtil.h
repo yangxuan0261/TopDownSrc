@@ -24,7 +24,19 @@ public:
 
 	inline int32 readInt32(){ return read<int32>(); }
 	inline int16 readInt16(){ return read<int16>(); }
+	inline int8 readInt8(){ return read<int8>(); }
+	inline uint32 readUnsignedInt(){ return read<uint32>(); }
+	inline std::string readString()
+	{
+		static char buffer[65535];
+		memset(buffer, 0x0, 65535);
+		uint32 len = readUnsignedInt();
 
+		read((unsigned char*)buffer, len);
+
+		std::string str(buffer);
+		return str;
+	}
 private:
 	template <typename T> T read()
 	{
@@ -34,6 +46,7 @@ private:
 	}
 
 	void readData(void* data, unsigned int sizeToRead);
+	virtual int32 read(unsigned char* buffer, uint32 sizeToRead);
 
 private:
 	ENUM_ENDIAN_MODE_BATTLE m_endianMode;
