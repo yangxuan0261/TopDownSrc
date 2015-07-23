@@ -28,7 +28,7 @@ public:
 		FString		mDescr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = ItemData)
-		int16			mUseLv;
+		int32			mUseLv;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = ItemData)
 		FString		mUseRemark;
@@ -37,7 +37,7 @@ public:
 		bool			mCanAdd;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = ItemData)
-		int16				mIcon;
+		int32				mIcon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = ItemData)
 		FString		mAttribute;

@@ -69,10 +69,10 @@ bool UCDataMgr::loadItemData(FString _path)
 			itemData->mId = stream->readInt32();
 			itemData->mName = UTF8_TO_TCHAR(stream->readString().c_str());
 			itemData->mDescr = UTF8_TO_TCHAR(stream->readString().c_str());
-			itemData->mUseLv = stream->readInt16();
+			itemData->mUseLv = stream->readInt32();
 			itemData->mUseRemark = UTF8_TO_TCHAR(stream->readString().c_str());
 			itemData->mCanAdd = stream->readBool();
-			itemData->mIcon = stream->readInt16();
+			itemData->mIcon = stream->readInt32();
 			itemData->mAttribute = UTF8_TO_TCHAR(stream->readString().c_str());
 
 			mItemDataMap.Add(itemData->mId, itemData);
