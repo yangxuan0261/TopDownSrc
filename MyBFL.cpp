@@ -14,6 +14,11 @@ void UMyBFL::init()
 	 mDataMgr = UCDataMgr::StaticClass()->GetDefaultObject<UCDataMgr>();
 }
 
+UCDataMgr* UMyBFL::GetDataMgr()
+{
+	return mDataMgr;
+}
+
 UTask* UMyBFL::createTask()
 {
 	return UTask::StaticClass()->GetDefaultObject<UTask>();
@@ -29,7 +34,7 @@ bool UMyBFL::ReadFile_ItemData(FString _path)
 	return mDataMgr->loadItemData(_path);
 }
 
-UCDataMgr* UMyBFL::GetDataMgr()
+bool UMyBFL::ReadFile_Text(FString _path)
 {
-	return mDataMgr;
+	return mDataMgr->loadText(_path);
 }

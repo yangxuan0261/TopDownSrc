@@ -25,6 +25,7 @@ void UCDataMgr::reset()
 {
 	mHeroDataMap.Empty();
 	mItemDataMap.Empty();
+	mTextArr.Empty();
 }
 
 bool UCDataMgr::loadHeroData(FString _path)
@@ -83,6 +84,24 @@ bool UCDataMgr::loadItemData(FString _path)
 	return ret;
 }
 
+bool UCDataMgr::loadText(FString _path)
+{
+	CReadFileStreamUtil* stream = new CReadFileStreamUtil();
+	bool ret = stream->readFileStream(_path, CReadFileStreamUtil::ENUM_ENDIAN_MODE_BIG);
+	if (ret)
+	{
+		int16 count = stream->readInt16();
+		for (int16 i = 0; i < count; i++)
+		{
+			FString content = UTF8_TO_TCHAR(stream->readString().c_str());
+			mTextArr.Add(content);
+		}
+	}
+	stream->drop();
+
+	return ret;
+}
+
 UCHeroData* UCDataMgr::getHeroData(int32 _id)
 {
 	return mHeroDataMap.FindRef(_id);
@@ -92,6 +111,8 @@ UCItemData* UCDataMgr::getItemData(int32 _id)
 {
 	return mItemDataMap.FindRef(_id);
 }
+
+
 
 void UCDataMgr::printHeroMap()
 {

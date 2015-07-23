@@ -23,6 +23,9 @@ public:
 		static void init();
 
 	UFUNCTION(BlueprintCallable, Category = "MyBFL")
+		static UCDataMgr* GetDataMgr();
+
+	UFUNCTION(BlueprintCallable, Category = "MyBFL")
 	static UTask* createTask();
 	
 	UFUNCTION(BlueprintCallable, Category = "MyBFL")
@@ -32,8 +35,7 @@ public:
 		static bool ReadFile_ItemData(FString _path);
 
 	UFUNCTION(BlueprintCallable, Category = "MyBFL")
-		static UCDataMgr* GetDataMgr();
-
+		static bool ReadFile_Text(FString _path);
 
 private:
 	static UCDataMgr* mDataMgr;

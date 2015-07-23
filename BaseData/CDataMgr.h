@@ -30,6 +30,10 @@ public:
 		bool loadItemData(FString _path);
 
 	UFUNCTION(BlueprintCallable, Category = DataMgr)
+		bool loadText(FString _path);
+
+public:
+	UFUNCTION(BlueprintCallable, Category = DataMgr)
 	UCHeroData* getHeroData(int32 _id);
 
 	UFUNCTION(BlueprintCallable, Category = DataMgr)
@@ -39,7 +43,10 @@ public:
 	void printHeroMap();
 	
 public:
-	TMap<int32, UCHeroData*>			mHeroDataMap;
+	TMap<int32, UCHeroData*>			mHeroDataMap; //蓝图不支持TMap
 	TMap<int32, UCItemData*>			mItemDataMap;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DataMgr)
+		TArray<FString>								mTextArr; //蓝图支持TArray
 };
 
