@@ -29,10 +29,6 @@ bool CReadFileStreamUtil::readFileStream(FString filePath, ENUM_ENDIAN_MODE_BATT
 	m_Data = (unsigned char*)FMemory::Malloc(BufferSize);
 	//void* Buffer = FMemory::Malloc(BufferSize);
 	FileReader->Serialize(m_Data, BufferSize);
-
-	/*FString errorMsg = FString::Printf(TEXT("buff size : %d"), BufferSize);
-	GEngine->AddOnScreenDebugMessage(0, 3.0f, FColor::Yellow, errorMsg);*/
-
 	return true;
 }
 
@@ -43,7 +39,6 @@ void CReadFileStreamUtil::drop()
 
 void CReadFileStreamUtil::readData(void* data, unsigned int sizeToRead)
 {
-
 	if (m_endianMode == ENUM_ENDIAN_MODE_LITTLE){
 		//m_Data.copy((unsigned char*)data, sizeToRead);
 		memcpy(data, m_Data + m_iOffset, sizeToRead);
