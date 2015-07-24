@@ -8,6 +8,7 @@
 
 class UIdea;
 class UTask;
+class UCItemData;
 
 UCLASS()
 class MYBTTEST_API AMyCharacter : public ACharacter
@@ -31,11 +32,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = MyCharFunc)
 	bool addTask(UTask* _task);
 
+	UFUNCTION(BlueprintCallable, Category = MyCharFunc)
+		bool removeTask();
+
 public:
 	//TSubclassOf<UIdea> idea = UIdea::StaticClass();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = MyCharMember)
 	 UIdea* idea;
 
-
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = MyCharMember)
+	UCItemData* tmpItemData;*/
 };
 
