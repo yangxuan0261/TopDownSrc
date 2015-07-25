@@ -21,7 +21,7 @@ class MYBTTEST_API UMyBFL : public UBlueprintFunctionLibrary
 	
 public:
 	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
-		static void init();
+	static void initAllGlobalMgr();
 
 	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
 	static UCDataMgr* GetDataMgr();

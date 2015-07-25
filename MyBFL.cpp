@@ -12,7 +12,7 @@
 UCDataMgr* UMyBFL::mDataMgr = nullptr;
 UCSkillDataMgr* UMyBFL::mSkillDataMgr = nullptr;
 
-void UMyBFL::init()
+void UMyBFL::initAllGlobalMgr()
 {
 	mDataMgr = UCDataMgr::StaticClass()->GetDefaultObject<UCDataMgr>();
 	mSkillDataMgr = UCSkillDataMgr::StaticClass()->GetDefaultObject<UCSkillDataMgr>();
