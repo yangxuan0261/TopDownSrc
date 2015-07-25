@@ -5,9 +5,9 @@
 
 #include "MyBTTest.h"
 #include "CDataMgr.h"
+
 #include "Utils/CReadFileStreamUtil.h"
 #include "Utils/CCommonHead.h"
-
 #include "BaseData/CHeroData.h" //包含其他继承Uobject的头文件一定要在本类头文件之后CDataMgr.h，否则包错
 #include "BaseData/CItemData.h"
 

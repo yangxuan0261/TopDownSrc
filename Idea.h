@@ -11,7 +11,7 @@ class UTask;
 /**
  * 
  */
-UCLASS(BlueprintType)
+UCLASS(BlueprintType, Blueprintable)
 class MYBTTEST_API UIdea : public UObject
 {
 	GENERATED_BODY()

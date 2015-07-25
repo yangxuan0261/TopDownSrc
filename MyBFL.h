@@ -9,6 +9,7 @@
 
 class UTask;
 class UCDataMgr;
+class UCSkillDataMgr;
 
 /**
  * 
@@ -19,25 +20,32 @@ class MYBTTEST_API UMyBFL : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 	
 public:
-	UFUNCTION(BlueprintCallable, Category = "MyBFL")
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
 		static void init();
 
-	UFUNCTION(BlueprintCallable, Category = "MyBFL")
-		static UCDataMgr* GetDataMgr();
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
+	static UCDataMgr* GetDataMgr();
 
-	UFUNCTION(BlueprintCallable, Category = "MyBFL")
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
+	static UCSkillDataMgr* GetSkillDataMgr();
+
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
 	static UTask* createTask();
 	
-	UFUNCTION(BlueprintCallable, Category = "MyBFL")
-		static bool ReadFile_HeroData(FString _path);
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
+	static bool ReadFile_HeroData(FString _path);
 
-	UFUNCTION(BlueprintCallable, Category = "MyBFL")
-		static bool ReadFile_ItemData(FString _path);
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
+	static bool ReadFile_ItemData(FString _path);
 
-	UFUNCTION(BlueprintCallable, Category = "MyBFL")
-		static bool ReadFile_Text(FString _path);
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
+	static bool ReadFile_Text(FString _path);
+
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
+	static bool ReadFile_SkillData(FString _path);
 
 private:
 	static UCDataMgr* mDataMgr;
+	static UCSkillDataMgr* mSkillDataMgr;
 };
 

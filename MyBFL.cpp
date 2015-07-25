@@ -2,21 +2,30 @@
 
 #include "MyBTTest.h"
 #include "MyBFL.h"
+
 #include "Task/Task.h"
 #include "Utils/CReadFileStreamUtil.h"
 #include "Utils/CCommonHead.h"
 #include "BaseData/CDataMgr.h"
+#include "Skill/CSkillDataMgr.h"
 
 UCDataMgr* UMyBFL::mDataMgr = nullptr;
+UCSkillDataMgr* UMyBFL::mSkillDataMgr = nullptr;
 
 void UMyBFL::init()
 {
-	 mDataMgr = UCDataMgr::StaticClass()->GetDefaultObject<UCDataMgr>();
+	mDataMgr = UCDataMgr::StaticClass()->GetDefaultObject<UCDataMgr>();
+	mSkillDataMgr = UCSkillDataMgr::StaticClass()->GetDefaultObject<UCSkillDataMgr>();
 }
 
 UCDataMgr* UMyBFL::GetDataMgr()
 {
 	return mDataMgr;
+}
+
+UCSkillDataMgr* UMyBFL::GetSkillDataMgr()
+{
+	return mSkillDataMgr;
 }
 
 UTask* UMyBFL::createTask()
@@ -37,4 +46,9 @@ bool UMyBFL::ReadFile_ItemData(FString _path)
 bool UMyBFL::ReadFile_Text(FString _path)
 {
 	return mDataMgr->loadText(_path);
+}
+
+bool UMyBFL::ReadFile_SkillData(FString _path)
+{
+	return mSkillDataMgr->loadSkillData(_path);
 }

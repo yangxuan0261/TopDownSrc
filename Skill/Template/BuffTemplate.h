@@ -8,7 +8,7 @@
 /**
  * 
  */
-UCLASS(BlueprintType, Blueprintable)
+UCLASS(BlueprintType)
 class MYBTTEST_API UBuffTemplate : public UObject
 {
 	GENERATED_BODY()
