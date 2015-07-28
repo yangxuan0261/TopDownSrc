@@ -35,6 +35,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = SkillDataMgr)
 		USkillTemplate* getBuffData(int32 _id);
 
+	UFUNCTION(BlueprintCallable, Category = SkillDataMgr)
+		int32 getSkillDataMapLength() { return mSkillDataMap.Num(); }
+
+	UFUNCTION(BlueprintCallable, Category = SkillDataMgr)
+		void printSkillMap();
+
 public:
 	TMap<int32, USkillTemplate*>			mSkillDataMap; //À¶Í¼²»Ö§³ÖTMap
 	

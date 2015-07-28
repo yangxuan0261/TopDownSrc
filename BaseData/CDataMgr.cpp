@@ -38,6 +38,7 @@ bool UCDataMgr::loadHeroData(FString _path)
 		for (int16 i = 0; i < count; i++)
 		{
 			UCHeroData* heroData = NewObject<UCHeroData>(); //
+			heroData->AddToRoot(); //防止gc回收
 			heroData->mId = stream->readInt32();
 			heroData->mType = stream->readInt8();
 			heroData->mName = UTF8_TO_TCHAR(stream->readString().c_str());
@@ -67,6 +68,7 @@ bool UCDataMgr::loadItemData(FString _path)
 		for (int16 i = 0; i < count; i++)
 		{
 			UCItemData* itemData = NewObject<UCItemData>(); //
+			itemData->AddToRoot(); //防止gc回收
 			itemData->mId = stream->readInt32();
 			itemData->mName = UTF8_TO_TCHAR(stream->readString().c_str());
 			itemData->mDescr = UTF8_TO_TCHAR(stream->readString().c_str());

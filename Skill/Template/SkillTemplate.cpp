@@ -3,7 +3,7 @@
 #include "MyBTTest.h"
 #include "SkillTemplate.h"
 
-USkillTemplate::USkillTemplate()
+USkillTemplate::USkillTemplate() 
 {
 }
 

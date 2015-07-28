@@ -25,6 +25,7 @@ bool UCSkillDataMgr::loadSkillData(FString _path)
 		for (int16 i = 0; i < count; i++)
 		{
 			USkillTemplate* skillData = NewObject<USkillTemplate>(); //
+			skillData->AddToRoot(); //·ÀÖ¹gc»ØÊÕ
 			skillData->mId = stream->readInt32();
 			skillData->mName = UTF8_TO_TCHAR(stream->readString().c_str());
 			skillData->mDescr = UTF8_TO_TCHAR(stream->readString().c_str());
@@ -67,4 +68,15 @@ USkillTemplate* UCSkillDataMgr::getSkillData(int32 _id)
 USkillTemplate* UCSkillDataMgr::getBuffData(int32 _id)
 {
 	return nullptr;
+}
+
+void UCSkillDataMgr::printSkillMap()
+{
+	FString msg1 = FString::Printf(TEXT("--- map size:%d \n"), mSkillDataMap.Num());
+	for (auto it = mSkillDataMap.CreateConstIterator(); it; ++it)
+	{
+		FString msg2 = FString::Printf(TEXT("--- mId:%d, mName:%s \n"), it->Key, *(it->Value->mName));
+		msg1.Append(msg2);
+	}
+	GEngine->AddOnScreenDebugMessage(0, 3.0f, FColor::Yellow, msg1);
 }
