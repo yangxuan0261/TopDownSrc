@@ -29,11 +29,13 @@ bool CReadFileStreamUtil::readFileStream(FString filePath, ENUM_ENDIAN_MODE_BATT
 	m_Data = (unsigned char*)FMemory::Malloc(BufferSize);
 	//void* Buffer = FMemory::Malloc(BufferSize);
 	FileReader->Serialize(m_Data, BufferSize);
+	FileReader->Close();
 	return true;
 }
 
 void CReadFileStreamUtil::drop()
 {
+	FMemory::Free(m_Data);
 	delete this;
 }
 
