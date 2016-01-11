@@ -10,6 +10,7 @@
 class UTask;
 class UCDataMgr;
 class UCSkillDataMgr;
+class AMyText;
 
 /**
  * 
@@ -43,6 +44,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
 	static bool ReadFile_SkillData(FString _path);
+
+	UFUNCTION(BlueprintCallable, Category = "MyGlobalMgr")
+	static bool Test_Countdown(AMyText* _text);
 
 private:
 	static UCDataMgr* mDataMgr;

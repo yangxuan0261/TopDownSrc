@@ -19,13 +19,17 @@ AMyText::AMyText()
 	CountdownTime = 3;
 }
 
-// Called when the game starts or when spawned
+//TODO: hello world Called when the game starts or when spawned
 void AMyText::BeginPlay()
 {
 	Super::BeginPlay();
-
 	UpdateTimerDisplay();
-	GetWorldTimerManager().SetTimer(CountdownTimerHandle, this, &AMyText::AdvanceTimer, 1.0f, true);
+	//GetWorldTimerManager().SetTimer(CountdownTimerHandle, this, &AMyText::AdvanceTimer, 1.0f, true);
+	
+	//TODO: delegate test
+	mWriteLogDelegate.BindUObject(this, &AMyText::WriteLog);
+	mMDWriteLog.AddUObject(this, &AMyText::WriteLog2);
+	mMDWriteLog.AddUObject(this, &AMyText::WriteLog3);
 }
 
 // Called every frame
@@ -57,4 +61,28 @@ void AMyText::CountdownHasFinished_Implementation()
 {
 	//Change to a special readout
 	CountdownText->SetText(TEXT("GO!"));
+	
+	FString str = FString::Printf(TEXT("hello world - %d"), 123);
+
+	//TODO: delegate test
+	//mWriteLogDelegate.Execute(str);
+	mMDWriteLog.Broadcast(str);
+}
+
+void AMyText::WriteLog(const FString& _str)
+{
+	GEngine->AddOnScreenDebugMessage(0, 5.0f, FColor::Yellow, _str);
+}
+
+void AMyText::WriteLog2(const FString& _str)
+{
+	FString str = _str + FString(TEXT("- WriteLog2"));
+	GEngine->AddOnScreenDebugMessage(0, 5.0f, FColor::Red, str);
+}
+
+
+void AMyText::WriteLog3(const FString& _str)
+{
+	FString str = _str + FString(TEXT("- WriteLog3"));
+	GEngine->AddOnScreenDebugMessage(0, 5.0f, FColor::Red, str);
 }

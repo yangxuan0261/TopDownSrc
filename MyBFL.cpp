@@ -8,6 +8,7 @@
 #include "Utils/CCommonHead.h"
 #include "BaseData/CDataMgr.h"
 #include "Skill/CSkillDataMgr.h"
+#include "Test/MyText.h"
 
 UCDataMgr* UMyBFL::mDataMgr = nullptr;
 UCSkillDataMgr* UMyBFL::mSkillDataMgr = nullptr;
@@ -51,4 +52,13 @@ bool UMyBFL::ReadFile_Text(FString _path)
 bool UMyBFL::ReadFile_SkillData(FString _path)
 {
 	return mSkillDataMgr->loadSkillData(_path);
+}
+
+bool UMyBFL::Test_Countdown(AMyText* _text)
+{
+	if (_text != nullptr)
+	{
+		_text->CountdownHasFinished();
+	}
+	return true;
 }
